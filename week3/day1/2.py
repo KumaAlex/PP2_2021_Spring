@@ -1,7 +1,7 @@
 x = input().split()
-i = 1000
+min_ = 1000
 for j in x:
     a = int(j)
-    if a < i and a > 0:
-        i = a
+    if a < min_ and a > 0:
+        min_ = a
 print(i)
