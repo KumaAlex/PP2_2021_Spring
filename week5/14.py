@@ -1,0 +1,1 @@
+print(set('abcdefghijklmnopqrstuvwxyz') <= set(input().lower()))
