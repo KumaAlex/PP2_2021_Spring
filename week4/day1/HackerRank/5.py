@@ -1,12 +1,5 @@
 import re
-txt = str(input())
-OK = True
-items = []
-x = re.compile(r".+(?P<ans>[AEIOUaeiou][AEIOUaeiou]+).+")
-for i in re.finditer(x, txt): items.append(i.group("ans"))
-for i in items:
-    print(i)
-    OK = False
-if OK:
-    print("-1")
-print(txt)
+for i in range(int(input())):
+    s = str(input())
+    x = re.search(r"[A-Za-z]+\s[<]{1}[a-zA-Z][a-zA-Z0-9._-]+@{1}[a-zA-Z]+[.][a-zA-Z]+[>]{1}$", s)
+    if x: print(s)

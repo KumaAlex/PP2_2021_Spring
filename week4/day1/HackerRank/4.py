@@ -1,5 +1,6 @@
 import re
-x = re.findall(r"[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm].*(?P<ans>[AEIOUaeiou][AEIOUaeiou]+).*[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm]", str(input()))
-if x:
-    for i in x: print(i)
-else: print("-1")
+for i in range(int(input())):
+    x = str(input())
+    ans = re.search(r"^[789]\d{9}$", x)
+    if ans: print("YES")
+    else: print("NO")
