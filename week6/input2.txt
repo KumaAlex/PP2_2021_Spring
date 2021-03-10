@@ -1,0 +1,4 @@
+word word
+len
+word qwe qwe
+len qwe qwe qwe qw e
