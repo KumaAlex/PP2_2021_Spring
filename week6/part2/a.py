@@ -1,5 +1,5 @@
 import os
-print("What is is?\n1 - directory\n2 - file")
+print("What is it?\n1 - directory\n2 - file")
 n = int(input())
 if n == 2: 
     print("What do you need?\n1 - delete\n2 - rename\n3 - add content\n4 - rewrite")
