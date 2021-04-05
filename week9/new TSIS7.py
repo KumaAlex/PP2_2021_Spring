@@ -2,7 +2,7 @@ import pygame
 import math
 
 pygame.init()
-screen = pygame.display.set_mode((634, 500))
+screen = pygame.display.set_mode((684, 550))
 done = False
 clock = pygame.time.Clock()
 font = pygame.font.SysFont('sans', 20)
@@ -14,32 +14,54 @@ OKK = True
 def bg():
     screen.fill((230, 230, 230))
 
+    # левые значения
     for i in range(9):
         screen.blit(font.render(str(float(1 - 0.25*i)), 1, (0, 0, 0)), (7, 40 + i*50))
 
+    # горизонтальные линии
     for i in range(9):
         a = 1
         if i == 0 or i == 4 or i == 8: a = 2
-        pygame.draw.line(screen, (0, 0, 0), (49, 50 + i*50), (583, 50 + i*50), a)
+        pygame.draw.line(screen, (0, 0, 0), (59, 50 + i*50), (623, 50 + i*50), a)
     
+    # вертикальные линии
     for i in range(7):
         a = 1
         if i == 0 or i == 3 or i == 6: a = 2
-        pygame.draw.line(screen, (0, 0, 0), (49 + i*88.78, 50), (49 + i*88.78, 450), a)
+        pygame.draw.line(screen, (0, 0, 0), (74 + i*88.78, 35), (74 + i*88.78, 465), a)
 
+    # нижние значения
     j = -3.5
     for i in range(13):
         j += 0.5
-        if int(j) != j and j != 0: screen.blit(font.render(str(float(j))+'п', 1, (0, 0, 0)), (30 + i*45, 460))
-        elif j == 0: screen.blit(font.render('0', 1, (0, 0, 0)), (42 + i*45, 460))
-        else: screen.blit(font.render(str(int(j))+'п', 1, (0, 0, 0)), (36 + i*45, 460))
+        if int(j) != j and j != 0: screen.blit(font.render(str(float(j))+'п', 1, (0, 0, 0)), (55 + i*45, 475))
+        elif j == 0: screen.blit(font.render('0', 1, (0, 0, 0)), (67 + i*45, 475))
+        else: screen.blit(font.render(str(int(j))+'п', 1, (0, 0, 0)), (61 + i*45, 475))
 
+    # вертикальные зубчики
     for i in range(6):
-        pygame.draw.line(screen, (0, 0, 0), (94 + i*88.78, 443), (94 + i*88.78, 450))
-        pygame.draw.line(screen, (0, 0, 0), (94 + i*88.78, 50), (94 + i*88.78, 57))
+        pygame.draw.line(screen, (0, 0, 0), (119 + i*88.78, 458), (119 + i*88.78, 465))
+        pygame.draw.line(screen, (0, 0, 0), (119 + i*88.78, 35), (119 + i*88.78, 42))
 
+    # боковые зубчики
+    for i in range(8):
+        pygame.draw.line(screen, (0, 0, 0), (59, 75 + i*50), (66, 75 + i*50), 1)
+        pygame.draw.line(screen, (0, 0, 0), (616, 75 + i*50), (623, 75 + i*50), 1)
+
+    # внешняя рамка
+    pygame.draw.line(screen, (0, 0, 0), (59, 35), (623, 35), 2) #в
+    pygame.draw.line(screen, (0, 0, 0), (623, 35), (623, 465), 2) #п
+    pygame.draw.line(screen, (0, 0, 0), (59, 35), (59, 465), 2) #л
+    pygame.draw.line(screen, (0, 0, 0), (623, 465), (59, 465), 2) #н
+
+    screen.blit(font.render("sin", 1, (255, 0, 0)), (30, 520))
+    screen.blit(font.render("cos", 1, (0, 0, 255)), (30, 500))
+    pygame.draw.line(screen, (255, 0, 0), (60, 534), (110, 534))
+    for i in range(0, 5, 2):
+        pygame.draw.line(screen, (0, 0, 255), (60 + 10*i, 514), (60 + 10 + 10*i, 514))
 
 bg()
+
 def fs(x):
     global OK
     OK = not OK
@@ -65,8 +87,8 @@ while not done:
     if x <= 398:
         fs(x)
         fc(x)
-        if OK: pygame.draw.line(screen, (0, 0, 255), (x + n + 50, y + 200*fc(x)), (x + n + 3 + 50, y + 200*fc(x + 3)), 3)    
-        pygame.draw.line(screen, (255, 0, 0), (x + 50 + n, y + 200*fs(x)), (x + n + 50 + 3, y + 200*fs(3 + x)), 3)
+        if OK: pygame.draw.line(screen, (0, 0, 255), (x + n + 75, y + 200*fc(x)), (x + n + 3 + 75, y + 200*fc(x + 3)), 3)    
+        pygame.draw.line(screen, (255, 0, 0), (x + 75 + n, y + 200*fs(x)), (x + n + 75 + 3, y + 200*fs(3 + x)), 3)
 
 
     pygame.display.flip()
