@@ -21,7 +21,7 @@ walls = []
 players = []
 food = []
 images = {}
-pygame.mixer.music.load(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\music\menu.mp3')
+pygame.mixer.music.load(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\music\menu.mp3')
 pygame.mixer.music.play(loops= -1)
 #===========================================================
 # классы
@@ -138,7 +138,7 @@ def get_image(path):
 def map(lvl):
     global walls
     walls.clear()
-    with open(f'C:/Users/Мои документы/Desktop/Универ/1 курс 2 семестр/PP2/games/Snake/maps/map{lvl}', 'r') as f:
+    with open(f'C:/Users/Мои документы/Desktop/Универ/1 курс 2 семестр/PP2/alex/week11/TSIS9/Snake_part 1/maps/map{lvl}', 'r') as f:
         row_ind = 0
         for rows in f:
             for blocks_ind in range(len(rows)):
@@ -183,7 +183,7 @@ def save(players, food, lvl):
             "food4": [food[3].x, food[3].y, food[3].number],
             "score": score
             }
-    with open(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\saved_game.json', 'w') as file:
+    with open(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\saved_game.json', 'w') as file:
         json.dump(stats, file)
 
 
@@ -191,7 +191,7 @@ def load():
     global lvl, score
     stats = {}
     try:
-        with open(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\saved_game.json', 'r') as file:
+        with open(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\saved_game.json', 'r') as file:
             stats = json.load(file)
     except: print("empty")
     players[0].x = stats["player1"][0]
@@ -230,11 +230,11 @@ players.append(Snakes(width-100, height-100, 10, 10, (0, 0, 255), "BLUE"))
 players.append(Snakes(100, 100, 10, 10, (255, 0, 0), "RED"))
 for i in range(4):
     food.append(Food(random.randint(0, 750), random.randint(0, 600), random.randint(1, 4)))
-images[1] = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\foods\GreenApple.png')
-images[2] = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\foods\RedApple.png')
-images[3] = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\foods\Cherry.png')
-images[4] = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\foods\Banana.png')
-menu_image = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\snake_image.png')
+images[1] = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\foods\GreenApple.png')
+images[2] = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\foods\RedApple.png')
+images[3] = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\foods\Cherry.png')
+images[4] = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\foods\Banana.png')
+menu_image = get_image(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\snake_image.png')
 
 #===========================================================
 # игра
@@ -251,7 +251,7 @@ while not done:
     clock.tick(30)
     pygame.display.flip()
 
-pygame.mixer.music.load(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\music\game.mp3')
+pygame.mixer.music.load(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\music\game.mp3')
 pygame.mixer.music.play(loops= -1)
 
 done = False
@@ -301,7 +301,7 @@ while not done:
     pygame.display.flip()
 
 
-pygame.mixer.music.load(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\games\Snake\music\gameover.mp3')
+pygame.mixer.music.load(r'C:\Users\Мои документы\Desktop\Универ\1 курс 2 семестр\PP2\alex\week11\TSIS9\Snake_part 1\music\gameover.mp3')
 pygame.mixer.music.play()
 
 while done:
