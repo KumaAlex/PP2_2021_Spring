@@ -10,7 +10,6 @@ height = 600
 
 lvl = 0
 score = 20
-completed = False
 pygame.init()
 pygame.display.set_caption("Snake by ALEX")
 screen = pygame.display.set_mode((width, height))
