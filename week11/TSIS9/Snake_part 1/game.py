@@ -173,8 +173,8 @@ def paused():
 
 def save(players, food, lvl):
     stats = {
-            "player1":[players[0].x, players[0].y, players[0].length, players[0].direction], 
-            "player2":[players[1].x, players[1].y, players[1].length, players[1].direction],
+            "player1":[players[0].x, players[0].y, players[0].length, players[0].direction, players[0].xy], 
+            "player2":[players[1].x, players[1].y, players[1].length, players[1].direction, players[1].xy],
             "lvl": lvl,
             "food1": [food[0].x, food[0].y, food[0].number],
             "food2": [food[1].x, food[1].y, food[1].number],
@@ -197,10 +197,12 @@ def load():
     players[0].y = stats["player1"][1]
     players[0].length = stats["player1"][2]
     players[0].direction = stats["player1"][3]
+    players[0].xy = stats["player1"][4]
     players[1].x = stats["player2"][0]
     players[1].y = stats["player2"][1]
     players[1].length = stats["player2"][2]
     players[1].direction = stats["player2"][3]
+    players[1].xy = stats["player2"][4]
     lvl = stats["lvl"]
     food[0].x = stats["food1"][0]
     food[0].y = stats["food1"][1]
