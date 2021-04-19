@@ -147,7 +147,6 @@ def map(lvl):
 
 def play():
     screen.fill((51, 53, 67))
-    screen.blit(font.render("Score: " + str(score) + "/20", 1, (50, 0, 200)), (width - 190, 25))
     for block in walls:
         block.draw()
     for player in players:
@@ -159,6 +158,7 @@ def play():
         fruits.draw()
         fruits.collision()
         fruits.load_hitbox()
+    screen.blit(font.render("Score: " + str(score) + "/20", 1, (50, 0, 200)), (width - 190, 25))
 
 def menu(): 
     screen.blit(menu_image, (-50, -170))
@@ -279,7 +279,7 @@ while not done:
         pygame.display.flip()
 
     if score >= 20:
-        if lvl <= 6: lvl += 1
+        if lvl <= 5: lvl += 1
         else: lvl = 1
         map(lvl)
         score = 0
@@ -287,6 +287,8 @@ while not done:
             fruits.respawn()
         for player in players:
             player.length = 3
+            player.xy.clear()
+            player.hitbox.clear()
             if player.control == "RED":
                 player.x = 100
                 player.y = 100
