@@ -1,0 +1,25 @@
+with psycopg2.connect(dsn) as conn:
+    with conn.cursor() as cur:
+        cur.execute(sql)
+
+
+
+
+
+
+
+
+
+conn = psycopg2.connect(dsn)
+
+# transaction 1
+with conn:
+    with conn.cursor() as cur:
+        cur.execute(sql)
+
+# transaction 2
+with conn:
+    with conn.cursor() as cur:
+        cur.execute(sql)
+
+conn.close()
